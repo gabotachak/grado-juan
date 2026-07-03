@@ -1,6 +1,6 @@
 # Grado de Juan Diego 🎓
 
-Invitación web para la celebración del grado de Médico de Juan Diego Gallego Tachak.
+Invitación web para la celebración del grado de Médico de Juan Diego Gallego Tachack.
 
 Construido con [Astro](https://astro.build) y desplegado automáticamente a GitHub Pages mediante GitHub Actions en cada push a `main`.
 
