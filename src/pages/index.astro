@@ -264,30 +264,12 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
       font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      animation: cueReveal 0.9s ease forwards 2.2s, floaty 2.2s ease-in-out infinite 3.1s;
-    }
-
-    .scroll-cue.is-dismissed {
-      opacity: 0 !important;
-      animation: none;
-      pointer-events: none;
-    }
-
-    @keyframes cueReveal {
-      to { opacity: 1; }
+      animation: floaty 2.4s ease-in-out infinite;
     }
 
     @keyframes floaty {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .scroll-cue {
-        animation: cueReveal 0.9s ease forwards 2.2s;
-      }
     }
 
     .historia-grid {
@@ -468,12 +450,5 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
         toggle?.setAttribute('aria-expanded', 'false');
       }
     });
-
-    const scrollCue = document.querySelector('.scroll-cue');
-    const dismissScrollCue = () => {
-      scrollCue?.classList.add('is-dismissed');
-      window.removeEventListener('scroll', dismissScrollCue);
-    };
-    window.addEventListener('scroll', dismissScrollCue, { passive: true });
   </script>
 </Layout>
