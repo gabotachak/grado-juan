@@ -73,6 +73,27 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
     </div>
   </section>
 
+  <!-- MENSAJE -->
+  <section class="mensaje">
+    <div class="ornament"><span></span></div>
+    <div class="mensaje-texto">
+      <p>
+        Con mucha alegría, te invito a celebrar uno de los momentos más importantes de mi
+        vida: mi grado de <strong>Médico</strong>.
+      </p>
+      <p>
+        Un gran sueño que construimos juntos, y no hay mejor forma de celebrarlo rodeado de
+        las personas que han acompañado a Juan en cada proceso.
+      </p>
+      <p>
+        Será muy especial contar con tu presencia para compartir este gran logro, fruto de
+        esfuerzo, aprendizaje y grandes experiencias. Te invitamos a compartir con nosotros
+        este momento tan especial para nuestra amada familia.
+      </p>
+    </div>
+    <div class="ornament"><span></span></div>
+  </section>
+
   <!-- DETALLES -->
   <section id="detalles" class="detalles">
     <p class="section-title">Detalles del evento</p>
@@ -295,6 +316,43 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
     @keyframes floaty {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
+    }
+
+    .mensaje {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      max-width: 680px;
+    }
+
+    .mensaje-texto {
+      text-align: center;
+    }
+
+    .mensaje-texto p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: rgba(248, 244, 233, 0.9);
+      margin-bottom: 1.2rem;
+    }
+
+    .mensaje-texto p:last-child {
+      margin-bottom: 0;
+    }
+
+    .mensaje-texto strong {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    @media (max-width: 480px) {
+      .mensaje {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      .mensaje-texto p {
+        font-size: 1.1rem;
+      }
     }
 
     .detalles-card {
