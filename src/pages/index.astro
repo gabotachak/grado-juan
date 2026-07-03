@@ -57,7 +57,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       <div class="photo-pair hero-photos">
         <div class="frame">
           <div class="frame-inner">
-            <img src={GRADO1_IMG} alt={NOMBRE} width="1200" height="1600" />
+            <img src={GRADO1_IMG} alt={NOMBRE} width="1200" height="1600" fetchpriority="high" />
           </div>
         </div>
         <div class="frame">
@@ -73,6 +73,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       <div class="ornament"><span></span></div>
 
       <p class="hero-date">Sábado 11 de julio de 2026 &middot; 1:00 p.m.</p>
+      <p class="hero-countdown" id="countdown" hidden></p>
 
       <a class="scroll-cue" href="#detalles" aria-label="Desliza para ver más">
         <span>Descubre los detalles</span>
@@ -86,7 +87,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
   <!-- MENSAJE -->
   <section class="mensaje">
     <div class="ornament"><span></span></div>
-    <div class="mensaje-texto">
+    <div class="mensaje-texto reveal">
       <p>
         Para nosotros, es muy especial contar con tu presencia para compartir este gran
         logro, fruto de esfuerzo, aprendizaje y grandes experiencias.
@@ -98,15 +99,15 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       </p>
     </div>
 
-    <div class="photo-pair">
+    <div class="photo-pair reveal">
       <div class="frame">
         <div class="frame-inner">
-          <img src={UNIFORME_IMG} alt={`${NOMBRE} de uniforme`} width="1200" height="1600" />
+          <img src={UNIFORME_IMG} alt={`${NOMBRE} de uniforme`} width="1200" height="1600" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="frame">
         <div class="frame-inner">
-          <img src={GRADO2_IMG} alt={NOMBRE} width="1086" height="1448" />
+          <img src={GRADO2_IMG} alt={NOMBRE} width="1086" height="1448" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -118,7 +119,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
   <section id="detalles" class="detalles">
     <p class="section-title">Detalles del evento</p>
 
-    <div class="detalles-card">
+    <div class="detalles-card reveal">
       <div class="detalle-item">
         <div class="detalle-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -190,7 +191,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
           </svg>
         </div>
         <div>
-          <p class="detalle-label">🎁</p>
+          <p class="detalle-label detalle-label-emoji">🎁</p>
           <p class="detalle-valor">Lluvia de sobres</p>
         </div>
       </div>
@@ -202,7 +203,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
     <p class="section-title">Confirma tu asistencia</p>
     <p class="section-subtitle">Por favor confirma lo antes posible.</p>
 
-    <div class="cta-buttons">
+    <div class="cta-buttons reveal">
       <div class="calendar-dropdown">
         <button id="calendar-toggle" class="btn btn-gold" type="button" aria-haspopup="true" aria-expanded="false">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -271,6 +272,22 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       aspect-ratio: 3 / 4;
     }
 
+    .photo-pair .frame:first-child {
+      transform: rotate(-1.4deg);
+    }
+
+    .photo-pair .frame:last-child {
+      transform: rotate(1.4deg);
+    }
+
+    .mensaje .photo-pair .frame:first-child {
+      transform: rotate(1.4deg);
+    }
+
+    .mensaje .photo-pair .frame:last-child {
+      transform: rotate(-1.4deg);
+    }
+
     @media (max-width: 480px) {
       .hero {
         padding-top: 1.25rem;
@@ -288,6 +305,42 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
 
       .scroll-cue {
         margin-top: 1rem;
+      }
+    }
+
+    /* Viewports cortos (Safari iPhone con barra visible): recuperar el alto
+       que ocupa el contador para que el scroll cue no quede fuera de pantalla */
+    @media (max-width: 480px) and (max-height: 760px) {
+      .hero {
+        padding-top: 0.7rem;
+      }
+
+      .hero-inner {
+        gap: 0.25rem;
+      }
+
+      .invite-lead {
+        margin-top: 0;
+      }
+
+      .hero .ornament {
+        margin: 0.45rem auto;
+      }
+
+      .photo-pair {
+        margin: 0.4rem 0 0.55rem;
+      }
+
+      .hero-date {
+        margin-top: 0.15rem;
+      }
+
+      .hero-countdown {
+        margin-top: 0.4rem;
+      }
+
+      .scroll-cue {
+        margin-top: 0.4rem;
       }
     }
 
@@ -336,6 +389,19 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       color: var(--gold-light);
       font-size: 1rem;
       margin-top: 0.3rem;
+    }
+
+    .hero-countdown {
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid var(--gold-soft);
+      border-radius: 999px;
+      padding: 0.3rem 0.95rem;
+      margin-top: 0.55rem;
+      background: rgba(212, 175, 55, 0.07);
     }
 
     .scroll-cue {
@@ -395,7 +461,12 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       }
     }
 
+    .detalles {
+      scroll-margin-top: 0.5rem;
+    }
+
     .detalles-card {
+      position: relative;
       background: linear-gradient(160deg, rgba(26, 63, 110, 0.45), rgba(10, 31, 61, 0.55));
       border: 1px solid var(--gold-soft);
       border-radius: 20px;
@@ -404,6 +475,31 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       flex-direction: column;
       gap: 1.8rem;
       backdrop-filter: blur(6px);
+    }
+
+    .detalles-card::before,
+    .detalles-card::after {
+      content: '';
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      pointer-events: none;
+    }
+
+    .detalles-card::before {
+      top: 9px;
+      left: 9px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+      border-top-left-radius: 12px;
+    }
+
+    .detalles-card::after {
+      bottom: 9px;
+      right: 9px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+      border-bottom-right-radius: 12px;
     }
 
     .detalle-item {
@@ -432,6 +528,12 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       font-size: 0.72rem;
       color: var(--gold-light);
       margin-bottom: 0.25rem;
+    }
+
+    .detalle-label-emoji {
+      font-size: 1rem;
+      letter-spacing: 0;
+      line-height: 1;
     }
 
     .detalle-valor {
@@ -510,9 +612,22 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       color: var(--gold-light);
       font-size: 1.2rem;
     }
+
+    :global(html.js) .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    :global(html.js) .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 
   <script>
+    document.documentElement.classList.add('js');
+
     const toggle = document.getElementById('calendar-toggle');
     const menu = document.getElementById('calendar-menu');
 
@@ -529,5 +644,49 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
         toggle?.setAttribute('aria-expanded', 'false');
       }
     });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu?.classList.contains('open')) {
+        menu.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.focus();
+      }
+    });
+
+    const countdown = document.getElementById('countdown');
+    if (countdown) {
+      const eventDay = new Date(2026, 6, 11);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const days = Math.round((eventDay.getTime() - today.getTime()) / 86400000);
+      if (days > 1) {
+        countdown.textContent = `Faltan ${days} días`;
+        countdown.hidden = false;
+      } else if (days === 1) {
+        countdown.textContent = '¡Es mañana!';
+        countdown.hidden = false;
+      } else if (days === 0) {
+        countdown.textContent = '¡Es hoy!';
+        countdown.hidden = false;
+      }
+    }
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('visible'));
+    }
   </script>
 </Layout>
