@@ -24,8 +24,7 @@ Invitación web para celebrar el grado de Médico de Juan Diego Gallego Tachack 
 
 ## ✨ Qué tiene
 
-- 🖼️ Hero con foto de graduación en marco dorado, tipografía serif elegante y un scroll-cue con delay para no saturar de un vistazo
-- 📅 **Añadir a calendario** con dropdown para Google Calendar, Outlook y Apple Calendar (.ics)
+- 🖼️ Hero con foto en marco dorado, tipografía serif elegante y contador de días en vivo
 - 💬 **Confirmar asistencia** en un toque, con mensaje de WhatsApp pre-armado "a la vista" (fecha, hora, lugar y mapa)
 - 🔗 Meta tags OG/Twitter cuidadas para que el link luzca bien y con contexto al compartirse en WhatsApp/iMessage
 - 📱 Responsive de verdad, afinado contra las rarezas de Safari en iPhone (barra inferior, safe areas)

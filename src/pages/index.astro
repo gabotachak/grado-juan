@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 
 const NOMBRE = 'Juan Diego Gallego Tachack';
 const MAPS_URL = 'https://maps.app.goo.gl/ds4NkV1i2Ap3Spvv9';
-const DIRECCION = 'Conjunto Residencial Obelisco, Calle 24A # 57 - 69, Salón Comunal';
 const TELEFONO = '573057126176';
 const MENSAJE_WHATSAPP = [
   '¡Hola! Confirmo mi asistencia al grado de Juan Diego 🎓',
@@ -19,50 +18,34 @@ const MENSAJE_WHATSAPP = [
 
 const WHATSAPP_URL = `https://wa.me/${TELEFONO}?text=${encodeURIComponent(MENSAJE_WHATSAPP)}`;
 
-const EVENT_TITLE = 'Grado de Médico - Juan Diego Gallego Tachack';
-const EVENT_DETAILS =
-  '¡Celebremos juntos el grado de Juan Diego como Médico! ' + `Cómo llegar: ${MAPS_URL}`;
-const DTSTART = '20260711T180000Z';
-const DTEND = '20260711T210000Z';
-
-const GOOGLE_CAL_URL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-  EVENT_TITLE
-)}&dates=${DTSTART}/${DTEND}&details=${encodeURIComponent(EVENT_DETAILS)}&location=${encodeURIComponent(
-  DIRECCION
-)}&ctz=America/Bogota`;
-
-const OUTLOOK_URL = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(
-  EVENT_TITLE
-)}&startdt=2026-07-11T18:00:00Z&enddt=2026-07-11T21:00:00Z&location=${encodeURIComponent(
-  DIRECCION
-)}&body=${encodeURIComponent(EVENT_DETAILS)}`;
-
-const ICS_URL = `${import.meta.env.BASE_URL}grado-juan-diego.ics`;
-const GRADO1_IMG = `${import.meta.env.BASE_URL}juan-grado-1.jpg`;
-const BEBE_IMG = `${import.meta.env.BASE_URL}juan-bebe.jpg`;
-const UNIFORME_IMG = `${import.meta.env.BASE_URL}juan-uniforme-azul.jpg`;
-const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
+const BATA_IMG = `${import.meta.env.BASE_URL}juan-bata.jpg`;
+const BIRRETE_IMG = `${import.meta.env.BASE_URL}juan-birrete.jpg`;
 ---
 
 <Layout
   title="🎓 Grado de Médico de Juan Diego — ¡Estás invitado!"
-  description="📅 Sábado 11 de julio · 🕐 1:00 p.m. · 📍 Conjunto Residencial Obelisco, Calle 24A # 57 - 69. Toca para ver el mapa, agregar al calendario y confirmar tu asistencia."
+  description="📅 Sábado 11 de julio · 🕐 1:00 p.m. · 📍 Conjunto Residencial Obelisco, Calle 24A # 57 - 69. Toca para ver el mapa y confirmar tu asistencia."
 >
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
+      <svg
+        class="hero-cap"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M12 3 1 8l11 5 9-4.09V15h2V8L12 3z" />
+        <path d="M5 11.18V15c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.82l-7 3.18-7-3.18z" />
+      </svg>
+
       <p class="invite-lead">Con mucha alegría, te invitamos a la celebración del&hellip;</p>
       <div class="ornament"><span></span></div>
 
-      <div class="photo-pair hero-photos">
+      <div class="photo-single">
         <div class="frame">
           <div class="frame-inner">
-            <img src={GRADO1_IMG} alt={NOMBRE} width="1200" height="1600" fetchpriority="high" />
-          </div>
-        </div>
-        <div class="frame">
-          <div class="frame-inner">
-            <img src={BEBE_IMG} alt={`${NOMBRE} de bebé`} width="999" height="1332" />
+            <img src={BATA_IMG} alt={NOMBRE} width="1086" height="1448" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -102,15 +85,10 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       </p>
     </div>
 
-    <div class="photo-pair reveal">
+    <div class="photo-single reveal">
       <div class="frame">
         <div class="frame-inner">
-          <img src={UNIFORME_IMG} alt={`${NOMBRE} de uniforme`} width="1200" height="1600" loading="lazy" decoding="async" />
-        </div>
-      </div>
-      <div class="frame">
-        <div class="frame-inner">
-          <img src={GRADO2_IMG} alt={NOMBRE} width="1086" height="1448" loading="lazy" decoding="async" />
+          <img src={BIRRETE_IMG} alt={`${NOMBRE} con birrete`} width="1200" height="1600" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -194,34 +172,12 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
           </svg>
         </div>
         <div>
-          <p class="detalle-label detalle-label-emoji">🎁</p>
           <p class="detalle-valor">Lluvia de sobres</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <p class="section-title">Confirma tu asistencia</p>
-    <p class="section-subtitle">Por favor confirma lo antes posible.</p>
-
-    <div class="cta-buttons reveal">
-      <div class="calendar-dropdown">
-        <button id="calendar-toggle" class="btn btn-gold" type="button" aria-haspopup="true" aria-expanded="false">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="5" width="18" height="16" rx="2" />
-            <path d="M16 3v4M8 3v4M3 10h18" stroke-linecap="round" />
-          </svg>
-          Añadir a mi calendario
-        </button>
-        <div id="calendar-menu" class="calendar-menu">
-          <a href={GOOGLE_CAL_URL} target="_blank" rel="noopener noreferrer">Google Calendar</a>
-          <a href={OUTLOOK_URL} target="_blank" rel="noopener noreferrer">Outlook</a>
-          <a href={ICS_URL} download>Apple Calendar / .ics</a>
-        </div>
-      </div>
-
+    <div class="confirmar-wrap reveal">
       <a class="btn btn-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
           <path
@@ -260,37 +216,20 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       min-width: 0;
     }
 
-    .photo-pair {
-      display: flex;
-      gap: 0.75rem;
-      width: 100%;
-      margin: 1.2rem 0 1.4rem;
+    .hero-cap {
+      width: 46px;
+      height: 46px;
+      color: var(--gold);
+      filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.4));
     }
 
-    .photo-pair .frame {
-      flex: 1;
-      width: auto;
-      min-width: 0;
+    .photo-single {
+      width: min(64vw, 320px);
+      margin: 1.2rem auto 1.4rem;
     }
 
-    .photo-pair .frame-inner {
+    .photo-single .frame-inner {
       aspect-ratio: 3 / 4;
-    }
-
-    .photo-pair .frame:first-child {
-      transform: rotate(-1.4deg);
-    }
-
-    .photo-pair .frame:last-child {
-      transform: rotate(1.4deg);
-    }
-
-    .mensaje .photo-pair .frame:first-child {
-      transform: rotate(1.4deg);
-    }
-
-    .mensaje .photo-pair .frame:last-child {
-      transform: rotate(-1.4deg);
     }
 
     @media (max-width: 480px) {
@@ -299,9 +238,8 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
         padding-bottom: 1rem;
       }
 
-      .photo-pair {
-        gap: 0.6rem;
-        margin: 0.6rem 0 0.8rem;
+      .photo-single {
+        margin: 0.6rem auto 0.8rem;
       }
 
       .hero .ornament {
@@ -328,12 +266,18 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
         margin-top: 0;
       }
 
+      .hero-cap {
+        width: 30px;
+        height: 30px;
+      }
+
       .hero .ornament {
         margin: 0.45rem auto;
       }
 
-      .photo-pair {
-        margin: 0.4rem 0 0.55rem;
+      .photo-single {
+        width: min(43vw, 185px);
+        margin: 0.4rem auto 0.55rem;
       }
 
       .hero-date {
@@ -542,12 +486,6 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       margin-bottom: 0.25rem;
     }
 
-    .detalle-label-emoji {
-      font-size: 1rem;
-      letter-spacing: 0;
-      line-height: 1;
-    }
-
     .detalle-valor {
       font-size: 1.3rem;
       color: var(--white);
@@ -565,50 +503,10 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       font-size: 0.85rem;
     }
 
-    .cta-buttons {
+    .confirmar-wrap {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 1.2rem;
-      margin-top: 2.5rem;
-    }
-
-    .calendar-dropdown {
-      position: relative;
-    }
-
-    .calendar-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 0.6rem);
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--navy-800);
-      border: 1px solid var(--gold-soft);
-      border-radius: 12px;
-      padding: 0.5rem;
-      min-width: 220px;
-      box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.7);
-      z-index: 20;
-    }
-
-    .calendar-menu.open {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .calendar-menu a {
-      padding: 0.7rem 0.9rem;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--ivory);
-      font-family: var(--font-label);
-      font-size: 0.92rem;
-    }
-
-    .calendar-menu a:hover {
-      background: rgba(212, 175, 55, 0.15);
-      color: var(--gold-light);
+      margin-top: 2.2rem;
     }
 
     .footer {
@@ -639,31 +537,6 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
 
   <script>
     document.documentElement.classList.add('js');
-
-    const toggle = document.getElementById('calendar-toggle');
-    const menu = document.getElementById('calendar-menu');
-
-    toggle?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu?.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!(e.target instanceof Node)) return;
-      if (!menu?.contains(e.target) && e.target !== toggle) {
-        menu?.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu?.classList.contains('open')) {
-        menu.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-        toggle?.focus();
-      }
-    });
 
     const countdown = document.getElementById('countdown');
     if (countdown) {
