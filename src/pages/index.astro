@@ -67,7 +67,10 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
         </div>
       </div>
 
-      <h1 class="hero-name"><span class="hero-name-prefix">Grado de</span><br />{NOMBRE}</h1>
+      <h1 class="hero-name">
+        <span class="hero-name-prefix">Grado de</span><br />
+        <span id="hero-name-text" class="hero-name-text">{NOMBRE}</span>
+      </h1>
       <p class="hero-subtitle">como <strong>Médico</strong>.</p>
 
       <div class="ornament"><span></span></div>
@@ -253,6 +256,8 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       text-align: center;
       gap: 0.4rem;
       max-width: 640px;
+      width: 100%;
+      min-width: 0;
     }
 
     .photo-pair {
@@ -345,6 +350,7 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
     }
 
     .hero-name {
+      max-width: 100%;
       font-size: clamp(2.1rem, 6vw, 3.2rem);
       letter-spacing: 0.01em;
       line-height: 1.15;
@@ -359,6 +365,12 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
       font-size: 0.5em;
       font-weight: 500;
       letter-spacing: 0.04em;
+    }
+
+    .hero-name-text {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: clamp(1.05rem, 7vw, 3.2rem);
     }
 
     .hero-subtitle {
@@ -670,6 +682,24 @@ const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
         countdown.hidden = false;
       }
     }
+
+    const heroNameText = document.getElementById('hero-name-text');
+    const heroName = document.querySelector('.hero-name');
+    function fitHeroName() {
+      if (!(heroNameText instanceof HTMLElement) || !(heroName instanceof HTMLElement)) return;
+      heroNameText.style.fontSize = '';
+      const available = heroName.clientWidth;
+      const natural = heroNameText.scrollWidth;
+      if (natural > available) {
+        const currentSize = parseFloat(getComputedStyle(heroNameText).fontSize);
+        heroNameText.style.fontSize = `${(currentSize * available * 0.985) / natural}px`;
+      }
+    }
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(fitHeroName);
+    }
+    fitHeroName();
+    window.addEventListener('resize', fitHeroName);
 
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
