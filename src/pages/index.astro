@@ -202,10 +202,10 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
     .hero {
       min-height: 100svh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
     }
 
     .hero-inner {
@@ -218,12 +218,28 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
     }
 
     .hero-frame {
-      width: min(280px, 62vw);
-      margin: 1.5rem 0 1.8rem;
+      width: min(260px, 58vw);
+      margin: 1.2rem 0 1.4rem;
     }
 
     .hero-frame .frame-inner {
       aspect-ratio: 3 / 4;
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 1.75rem;
+        padding-bottom: 1.25rem;
+      }
+
+      .hero-frame {
+        width: min(200px, 48vw);
+        margin: 0.8rem 0 1rem;
+      }
+
+      .scroll-cue {
+        margin-top: 1.4rem;
+      }
     }
 
     .hero-name {
