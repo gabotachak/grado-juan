@@ -38,7 +38,10 @@ const OUTLOOK_URL = `https://outlook.live.com/calendar/0/deeplink/compose?path=/
 )}&body=${encodeURIComponent(EVENT_DETAILS)}`;
 
 const ICS_URL = `${import.meta.env.BASE_URL}grado-juan-diego.ics`;
-const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
+const GRADO1_IMG = `${import.meta.env.BASE_URL}juan-grado-1.jpg`;
+const BEBE_IMG = `${import.meta.env.BASE_URL}juan-bebe.jpg`;
+const UNIFORME_IMG = `${import.meta.env.BASE_URL}juan-uniforme-azul.jpg`;
+const GRADO2_IMG = `${import.meta.env.BASE_URL}juan-grado-2.jpg`;
 ---
 
 <Layout
@@ -51,9 +54,16 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
       <p class="invite-lead">Te invitamos al&hellip;</p>
       <div class="ornament"><span></span></div>
 
-      <div class="frame hero-frame">
-        <div class="frame-inner">
-          <img src={HERO_IMG} alt={NOMBRE} width="1200" height="1600" />
+      <div class="photo-pair hero-photos">
+        <div class="frame">
+          <div class="frame-inner">
+            <img src={GRADO1_IMG} alt={NOMBRE} width="1200" height="1600" />
+          </div>
+        </div>
+        <div class="frame">
+          <div class="frame-inner">
+            <img src={BEBE_IMG} alt={`${NOMBRE} de bebé`} width="1200" height="1600" />
+          </div>
         </div>
       </div>
 
@@ -91,6 +101,20 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
         este momento tan especial para nuestra amada familia.
       </p>
     </div>
+
+    <div class="photo-pair">
+      <div class="frame">
+        <div class="frame-inner">
+          <img src={UNIFORME_IMG} alt={`${NOMBRE} de uniforme`} width="1200" height="1600" />
+        </div>
+      </div>
+      <div class="frame">
+        <div class="frame-inner">
+          <img src={GRADO2_IMG} alt={NOMBRE} width="1200" height="1600" />
+        </div>
+      </div>
+    </div>
+
     <div class="ornament"><span></span></div>
   </section>
 
@@ -233,12 +257,19 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
       max-width: 640px;
     }
 
-    .hero-frame {
-      width: min(260px, 58vw);
+    .photo-pair {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
       margin: 1.2rem 0 1.4rem;
     }
 
-    .hero-frame .frame-inner {
+    .photo-pair .frame {
+      width: min(150px, 40vw);
+    }
+
+    .photo-pair .frame-inner {
       aspect-ratio: 3 / 4;
     }
 
@@ -248,9 +279,13 @@ const HERO_IMG = `${import.meta.env.BASE_URL}juan-scrubs.jpg`;
         padding-bottom: 1.25rem;
       }
 
-      .hero-frame {
-        width: min(200px, 48vw);
+      .photo-pair {
+        gap: 0.7rem;
         margin: 0.8rem 0 1rem;
+      }
+
+      .photo-pair .frame {
+        width: min(115px, 36vw);
       }
 
       .scroll-cue {
