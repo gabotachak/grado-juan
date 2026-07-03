@@ -125,16 +125,44 @@ h1, h2, h3 {
 
 .frame {
   position: relative;
-  border-radius: 14px;
-  padding: 5px;
-  background: linear-gradient(155deg, var(--gold-light), var(--gold) 40%, #8a6a1c 100%);
+  border-radius: 20px;
+  padding: 11px;
+  background: linear-gradient(160deg, rgba(26, 63, 110, 0.45), rgba(10, 31, 61, 0.55));
+  border: 1px solid var(--gold-soft);
+  backdrop-filter: blur(6px);
   box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.65);
 }
 
+.frame::before,
+.frame::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.frame::before {
+  top: 5px;
+  left: 5px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  border-top-left-radius: 12px;
+}
+
+.frame::after {
+  bottom: 5px;
+  right: 5px;
+  border-bottom: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  border-bottom-right-radius: 12px;
+}
+
 .frame-inner {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .frame-inner img {
