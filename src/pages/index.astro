@@ -1,0 +1,446 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const NOMBRE = 'Juan Diego Gallego Tachak';
+const MAPS_URL = 'https://maps.app.goo.gl/ds4NkV1i2Ap3Spvv9';
+const DIRECCION = 'Conjunto Residencial Obelisco, Calle 24A # 57 - 69, Salón Comunal';
+const TELEFONO = '573057126176';
+const MENSAJE_WHATSAPP =
+  'Hola! Te confirmo mi asistencia al grado de Juan el día 11 de Julio en el Conjunto Residencial Obelisco (https://maps.app.goo.gl/ds4NkV1i2Ap3Spvv9) nos vemos pronto!';
+
+const WHATSAPP_URL = `https://wa.me/${TELEFONO}?text=${encodeURIComponent(MENSAJE_WHATSAPP)}`;
+
+const EVENT_TITLE = 'Grado de Médico - Juan Diego Gallego Tachak';
+const EVENT_DETAILS =
+  '¡Celebremos juntos el grado de Juan Diego como Médico! ' + `Cómo llegar: ${MAPS_URL}`;
+const DTSTART = '20260711T180000Z';
+const DTEND = '20260711T210000Z';
+
+const GOOGLE_CAL_URL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+  EVENT_TITLE
+)}&dates=${DTSTART}/${DTEND}&details=${encodeURIComponent(EVENT_DETAILS)}&location=${encodeURIComponent(
+  DIRECCION
+)}&ctz=America/Bogota`;
+
+const OUTLOOK_URL = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(
+  EVENT_TITLE
+)}&startdt=2026-07-11T18:00:00Z&enddt=2026-07-11T21:00:00Z&location=${encodeURIComponent(
+  DIRECCION
+)}&body=${encodeURIComponent(EVENT_DETAILS)}`;
+
+const ICS_URL = `${import.meta.env.BASE_URL}grado-juan-diego.ics`;
+const TOGA_IMG = `${import.meta.env.BASE_URL}juan-toga.jpg`;
+const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
+---
+
+<Layout
+  title="Grado de Médico de Juan Diego · 11 de julio"
+  description="Nos honra invitarte a celebrar el grado de Médico de Juan Diego Gallego Tachak. Sábado 11 de julio, 1:00 p.m. en el Conjunto Residencial Obelisco."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Con inmensa alegría y orgullo</p>
+      <div class="ornament"><span></span></div>
+
+      <div class="frame hero-frame">
+        <div class="frame-inner">
+          <img src={TOGA_IMG} alt={`${NOMBRE} con toga y birrete de graduación`} width="828" height="1099" />
+        </div>
+      </div>
+
+      <h1 class="hero-name">{NOMBRE}</h1>
+      <p class="hero-subtitle">se graduó como Médico</p>
+
+      <div class="ornament"><span></span></div>
+
+      <p class="hero-date">Sábado 11 de julio de 2026 &middot; 1:00 p.m.</p>
+
+      <a class="scroll-cue" href="#historia" aria-label="Desliza para ver más">
+        <span>Descubre los detalles</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- MENSAJE / HISTORIA -->
+  <section id="historia" class="historia">
+    <p class="section-title">De estudiante a médico</p>
+    <div class="ornament"><span></span></div>
+
+    <div class="historia-grid">
+      <div class="frame historia-frame">
+        <div class="frame-inner">
+          <img src={MEDICO_IMG} alt={`${NOMBRE} con bata blanca de médico`} width="960" height="1280" />
+        </div>
+      </div>
+
+      <div class="historia-texto">
+        <p>
+          Después de años de madrugadas, estudio, guardias y mucho sacrificio, Juan Diego
+          cumplió el sueño que tanto anheló: convertirse en <strong>médico</strong>.
+        </p>
+        <p>
+          Ese sueño ya es una realidad, y no hay mejor forma de celebrarlo que rodeado de las
+          personas que lo hemos acompañado en este camino. Por eso queremos invitarte a
+          compartir con nosotros este momento tan especial.
+        </p>
+        <p class="firma">¡Tu cariño es parte de este logro!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETALLES -->
+  <section class="detalles">
+    <p class="section-title">Detalles de la celebración</p>
+    <p class="section-subtitle">Guarda la fecha, nos vemos para brindar por este nuevo comienzo.</p>
+
+    <div class="detalles-card">
+      <div class="detalle-item">
+        <div class="detalle-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M16 3v4M8 3v4M3 10h18" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <p class="detalle-label">Fecha</p>
+          <p class="detalle-valor">Sábado 11 de julio de 2026</p>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <div class="detalle-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <p class="detalle-label">Hora</p>
+          <p class="detalle-valor">1:00 p.m.</p>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <div class="detalle-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M12 21s-7-6.3-7-11.5A7 7 0 0119 9.5C19 14.7 12 21 12 21z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle cx="12" cy="9.5" r="2.4" />
+          </svg>
+        </div>
+        <div>
+          <p class="detalle-label">Lugar</p>
+          <p class="detalle-valor">Conjunto Residencial Obelisco &mdash; Salón Comunal</p>
+          <p class="detalle-direccion">Calle 24A # 57 - 69</p>
+          <a class="btn btn-outline mapa-btn" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+            Cómo llegar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <p class="section-title">¡No faltes a esta celebración!</p>
+    <p class="section-subtitle">
+      Tu presencia significa muchísimo para Juan Diego y para toda la familia. Ayúdanos
+      confirmando tu asistencia lo antes posible &mdash; es muy importante para organizar todo
+      con cariño. 💛
+    </p>
+
+    <div class="cta-buttons">
+      <div class="calendar-dropdown">
+        <button id="calendar-toggle" class="btn btn-gold" type="button" aria-haspopup="true" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M16 3v4M8 3v4M3 10h18" stroke-linecap="round" />
+          </svg>
+          Añadir a mi calendario
+        </button>
+        <div id="calendar-menu" class="calendar-menu">
+          <a href={GOOGLE_CAL_URL} target="_blank" rel="noopener noreferrer">Google Calendar</a>
+          <a href={OUTLOOK_URL} target="_blank" rel="noopener noreferrer">Outlook</a>
+          <a href={ICS_URL} download>Apple Calendar / .ics</a>
+        </div>
+      </div>
+
+      <a class="btn btn-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.83.5 3.53 1.36 4.99L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.3-1.63-.6-2.87-1.24-4.75-4.13-4.9-4.32-.14-.2-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1.01-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2.01.88 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.07.17-.2.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.66.78 1.94.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"
+          />
+        </svg>
+        Confirmar asistencia
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="ornament"><span></span></div>
+    <p class="footer-text">Con todo nuestro cariño, te esperamos para brindar por este nuevo comienzo.</p>
+    <p class="footer-firma">🎓 &nbsp;Familia Gallego Tachak&nbsp; 🎓</p>
+  </footer>
+
+  <style>
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.4rem;
+      max-width: 640px;
+    }
+
+    .hero-frame {
+      width: min(280px, 62vw);
+      margin: 1.5rem 0 1.8rem;
+    }
+
+    .hero-frame .frame-inner {
+      aspect-ratio: 3 / 4;
+    }
+
+    .hero-name {
+      font-size: clamp(2.1rem, 6vw, 3.2rem);
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, var(--white), var(--gold-light) 60%, var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: var(--ivory);
+      opacity: 0.9;
+    }
+
+    .hero-date {
+      font-family: var(--font-label);
+      letter-spacing: 0.06em;
+      color: var(--gold-light);
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .scroll-cue {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: rgba(248, 244, 233, 0.6);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: floaty 2.4s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    .historia-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .historia-frame .frame-inner {
+      aspect-ratio: 3 / 4;
+    }
+
+    .historia-texto p {
+      margin-bottom: 1.1rem;
+      font-size: 1.2rem;
+      color: rgba(248, 244, 233, 0.9);
+    }
+
+    .historia-texto .firma {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 680px) {
+      .historia-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .historia-frame {
+        width: min(230px, 60vw);
+      }
+    }
+
+    .detalles-card {
+      background: linear-gradient(160deg, rgba(26, 63, 110, 0.45), rgba(10, 31, 61, 0.55));
+      border: 1px solid var(--gold-soft);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .detalle-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .detalle-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-soft);
+    }
+
+    .detalle-label {
+      font-family: var(--font-label);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .detalle-valor {
+      font-size: 1.3rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .detalle-direccion {
+      font-size: 1.05rem;
+      color: rgba(248, 244, 233, 0.75);
+    }
+
+    .mapa-btn {
+      margin-top: 0.8rem;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .calendar-dropdown {
+      position: relative;
+    }
+
+    .calendar-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy-800);
+      border: 1px solid var(--gold-soft);
+      border-radius: 12px;
+      padding: 0.5rem;
+      min-width: 220px;
+      box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.7);
+      z-index: 20;
+    }
+
+    .calendar-menu.open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-menu a {
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--ivory);
+      font-family: var(--font-label);
+      font-size: 0.92rem;
+    }
+
+    .calendar-menu a:hover {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem 4rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      font-size: 1.25rem;
+      color: rgba(248, 244, 233, 0.85);
+      margin-bottom: 1rem;
+    }
+
+    .footer-firma {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.2rem;
+    }
+  </style>
+
+  <script>
+    const toggle = document.getElementById('calendar-toggle');
+    const menu = document.getElementById('calendar-menu');
+
+    toggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu?.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!(e.target instanceof Node)) return;
+      if (!menu?.contains(e.target) && e.target !== toggle) {
+        menu?.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</Layout>

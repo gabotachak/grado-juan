@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+  --navy-950: #050f22;
+  --navy-900: #0a1f3d;
+  --navy-800: #123056;
+  --navy-700: #1a3f6e;
+  --gold: #d4af37;
+  --gold-light: #f0d878;
+  --gold-soft: rgba(212, 175, 55, 0.35);
+  --ivory: #f8f4e9;
+  --white: #ffffff;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1ea952;
+
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Cormorant Garamond', 'Georgia', serif;
+  --font-label: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--navy-950);
+  color: var(--ivory);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(26, 63, 110, 0.6), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(18, 48, 86, 0.7), transparent 60%),
+    linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+  background-attachment: fixed;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+section {
+  position: relative;
+  padding: 5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  text-align: center;
+  font-weight: 500;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  color: var(--gold);
+  margin: 1.1rem auto;
+  width: 100%;
+  max-width: 280px;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft));
+}
+
+.ornament::after {
+  background: linear-gradient(90deg, var(--gold-soft), transparent);
+}
+
+.ornament span {
+  font-size: 0.9rem;
+  transform: rotate(45deg);
+  display: inline-block;
+  border: 1px solid var(--gold);
+  width: 8px;
+  height: 8px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--gold-light);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: rgba(248, 244, 233, 0.75);
+  font-size: 1.15rem;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+}
+
+.frame {
+  position: relative;
+  border-radius: 14px;
+  padding: 10px;
+  background: linear-gradient(155deg, var(--gold-light), var(--gold) 40%, #8a6a1c 100%);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.65);
+}
+
+.frame-inner {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  font-family: var(--font-label);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--navy-950);
+  box-shadow: 0 10px 25px -8px rgba(212, 175, 55, 0.6);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #2ee673, var(--whatsapp));
+  color: #04220f;
+  box-shadow: 0 10px 25px -8px rgba(37, 211, 102, 0.55);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ivory);
+  border: 1px solid var(--gold-soft);
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.container-fluid {
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 3.5rem 1.25rem;
+  }
+}
