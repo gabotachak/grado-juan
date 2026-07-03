@@ -5,8 +5,16 @@ const NOMBRE = 'Juan Diego Gallego Tachack';
 const MAPS_URL = 'https://maps.app.goo.gl/ds4NkV1i2Ap3Spvv9';
 const DIRECCION = 'Conjunto Residencial Obelisco, Calle 24A # 57 - 69, Salón Comunal';
 const TELEFONO = '573057126176';
-const MENSAJE_WHATSAPP =
-  'Hola! Te confirmo mi asistencia al grado de Juan el día 11 de Julio en el Conjunto Residencial Obelisco (https://maps.app.goo.gl/ds4NkV1i2Ap3Spvv9) nos vemos pronto!';
+const MENSAJE_WHATSAPP = [
+  '¡Hola! Confirmo mi asistencia al grado de Juan Diego 🎓',
+  '',
+  '📅 Sábado 11 de julio',
+  '🕐 1:00 p.m.',
+  '📍 Conjunto Residencial Obelisco, Salón Comunal',
+  MAPS_URL,
+  '',
+  '¡Nos vemos pronto!',
+].join('\n');
 
 const WHATSAPP_URL = `https://wa.me/${TELEFONO}?text=${encodeURIComponent(MENSAJE_WHATSAPP)}`;
 
