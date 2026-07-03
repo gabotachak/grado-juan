@@ -50,6 +50,7 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
   <section class="hero">
     <div class="hero-inner">
       <p class="eyebrow">Con inmensa alegría y orgullo</p>
+      <p class="invite-lead">Te invitamos al&hellip;</p>
       <div class="ornament"><span></span></div>
 
       <div class="frame hero-frame">
@@ -58,8 +59,8 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
         </div>
       </div>
 
-      <h1 class="hero-name">{NOMBRE}</h1>
-      <p class="hero-subtitle">se gradúa como Médico</p>
+      <h1 class="hero-name">Grado de {NOMBRE}</h1>
+      <p class="hero-subtitle">como <strong>Médico</strong></p>
 
       <div class="ornament"><span></span></div>
 
@@ -165,7 +166,7 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
           </svg>
         </div>
         <div>
-          <p class="detalle-label">Vestimenta</p>
+          <p class="detalle-label">Protocolo</p>
           <p class="detalle-valor">Traje casual</p>
         </div>
       </div>
@@ -178,7 +179,6 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
           </svg>
         </div>
         <div>
-          <p class="detalle-label">Detalle</p>
           <p class="detalle-valor">Lluvia de sobres</p>
         </div>
       </div>
@@ -287,6 +287,20 @@ const MEDICO_IMG = `${import.meta.env.BASE_URL}juan-medico.jpg`;
       font-size: clamp(1.2rem, 3vw, 1.6rem);
       color: var(--ivory);
       opacity: 0.9;
+    }
+
+    .hero-subtitle strong {
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .invite-lead {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+      color: var(--ivory);
+      opacity: 0.85;
+      margin-top: 0.4rem;
     }
 
     .hero-date {
